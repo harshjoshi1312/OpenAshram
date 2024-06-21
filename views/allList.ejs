@@ -1,0 +1,142 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+  <div class="main container">
+    <div class="filters">
+      <div class="filter">
+        <i class="fa-solid fa-fire"></i>
+        <p>Trending</p>
+      </div>
+      <div class="filter">
+        <img src="https://cdn-icons-png.flaticon.com/512/18/18625.png" alt="" />
+        <p>Home</p>
+      </div>
+      <div class="filter">
+        <img
+          src="https://a0.muscache.com/pictures/a6dd2bae-5fd0-4b28-b123-206783b5de1d.jpg"
+          alt="#"
+        />
+        <p>Desert</p>
+      </div>
+      <div class="filter">
+        <img
+          src="https://a0.muscache.com/pictures/ca25c7f3-0d1f-432b-9efa-b9f5dc6d8770.jpg"
+          alt="#"
+        />
+        <p>Camping</p>
+      </div>
+      <div class="filter">
+        <img
+          src="https://a0.muscache.com/pictures/c0a24c04-ce1f-490c-833f-987613930eca.jpg"
+          alt="#"
+        />
+        <p>NationalPark</p>
+      </div>
+      <div class="filter">
+        <img
+          src="https://a0.muscache.com/pictures/677a041d-7264-4c45-bb72-52bff21eb6e8.jpg"
+          alt="#"
+        />
+        <p>LakeFort</p>
+      </div>
+      <div class="filter">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3533/3533657.png"
+          alt="#"
+        />
+        <p>FarmHouse</p>
+      </div>
+      <div class="filter">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4G_0m2AebfuXxy_RY3Xu8k_jzn3iUIU9_vk5hn02RBDs50UbzHgd2QtbNnA562nRFCl0&usqp=CAU"
+          alt="#"
+        />
+        <p>TreeHouse</p>
+      </div>
+      <div class="filter">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2846/2846841.png"
+          alt="#"
+        />
+        <p>Tropical</p>
+      </div>
+      <div class="filter">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2206/2206606.png"
+          alt="#"
+        />
+        <p>Cave</p>
+      </div>
+      <div class="filter">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLj1pQZCZsV-66VUL_Vwo3MGwmGwBsMSXeKpS-zMirNG2RrVcD0n4SGyIkltcuajYuU1s&usqp=CAU"
+          alt="#"
+        />
+        <p>Towers</p>
+      </div>
+      <div class="filter">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/008/018/198/non_2x/illustration-of-a-simple-boat-icon-free-vector.jpg"
+          alt="#"
+        />
+        <p>HouseBoat</p>
+      </div>
+      <div class="filter">
+        <i class="fa-solid fa-water"></i>
+        <p>Lake</p>
+      </div>
+      <div class="filter">
+        <i class="fa-solid fa-igloo"></i>
+        <p>Island</p>
+      </div>
+      <div class="filter">
+        <i class="fa-solid fa-umbrella-beach"></i>
+        <p>Beach</p>
+      </div>
+      <div class="filter">
+        <i class="fa-brands fa-fort-awesome"></i>
+        <p>BeachFort</p>
+      </div>
+      <div class="filter">
+        <i class="fa-solid fa-landmark-dome"></i>
+        <p>Dome</p>
+      </div>
+    </div>
+    <div class="textToggle" id="textToggle1">
+      <div class="form-check form-switch">
+        <label class="form-check-label" for="flexSwitchCheckDefault"
+          ><span class="all">With taxes</span
+          ><span class="short">Taxes</span></label
+        >
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
+        />
+      </div>
+    </div>
+  </div>
+
+  <form action="/listing/category" id="myForm">
+    <input type="text" class="icons" name="category" style="display: none" />
+  </form>
+  <div class="container row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for (let resultAll of result) {%>
+    <div class="card">
+      <a href="/listing/<%= resultAll._id %>">
+        <img src="<%= resultAll.image.url %>" class="card-img-top" alt="#" />
+        <div class="card-img-overlay like"></div>
+        <div class="card-body">
+          <b><p class="card-text"><%= resultAll.title %></p></b>
+          <p class="card-text">
+            &#x20B9;<%= resultAll.price.toLocaleString('en-IN') %>/day<i
+              class="text-info"
+              >&nbsp; &nbsp; +18% GST</i
+            >
+          </p>
+        </div>
+      </a>
+    </div>
+    <% } %>
+  </div>
+</body>

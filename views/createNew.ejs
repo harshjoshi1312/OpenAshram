@@ -1,0 +1,120 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<style></style>
+<body>
+  <h1>Create a new Listing</h1>
+  <form
+    action="/listing"
+    method="post"
+    novalidate
+    class="needs-validation addnewlist"
+    enctype="multipart/form-data"
+  >
+    <div class="addnew">
+      <div class="mb-3">
+        <label for="Input1" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Input1"
+          name="listing[title]"
+          placeholder="Enter the title"
+          required
+        />
+        <div class="valid-feedback">Title should be good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="Textarea1" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          id="Textarea1"
+          rows="3"
+          name="listing[description]"
+          required
+        ></textarea>
+        <div class="invalid-feedback">Please enter short description!</div>
+      </div>
+      <div class="mb-3">
+        <label for="Input1" class="form-label">Upload listingImage</label>
+        <input
+          type="file"
+          class="form-control"
+          id="Input1"
+          name="listing[image]"
+          placeholder="Enter image link"
+          required
+        />
+      </div>
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="Input1" class="form-label">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Input1"
+            name="listing[price]"
+            placeholder="1200"
+            required
+          />
+          <div class="invalid-feedback">Please enter price!</div>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="options" class="form-label">Property category</label>
+          <select
+            class="form-select"
+            id="form-select"
+            name="listing[category]"
+            aria-label="Default select example"
+            required
+          >
+            <option value="trending" selected>Trending</option>
+            <option value="home">Home</option>
+            <option value="desert">Desert</option>
+            <option value="lake">Lake</option>
+            <option value="camping">Camping</option>
+            <option value="nationalPark">NationalPark</option>
+            <option value="lakeFort">LakeFort</option>
+            <option value="farms">Farms</option>
+            <option value="island">Island</option>
+            <option value="treeHouse">TreeHouse</option>
+            <option value="beach">Beach</option>
+            <option value="beschFront">BeschFront</option>
+            <option value="tropical">Tropical</option>
+            <option value="cave">Cave</option>
+            <option value="domes">Domes</option>
+            <option value="towers">Towers</option>
+            <option value="houseboat">Houseboat</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="Input1" class="form-label">Country</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Input1"
+            name="listing[country]"
+            placeholder="Enter country"
+            required
+          />
+          <div class="invalid-feedback">Please enter country name!</div>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="Input1" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Input1"
+            name="listing[location]"
+            placeholder="Enter location"
+            required
+          />
+          <div class="invalid-feedback">Please enter location!</div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-secondary mb-3">ADD</button>
+      </div>
+    </div>
+  </form>
+</body>

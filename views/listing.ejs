@@ -1,0 +1,134 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<style>
+  .container {
+    width: 40%;
+  }
+  form {
+    margin-top: 0;
+    display: inline-block;
+  }
+  h2 {
+    text-decoration: underline;
+    text-align: center;
+  }
+  .style {
+    display: flex;
+    flex-direction: row;
+  }
+</style>
+<body>
+  <h1><%= result.title %></h1>
+  <div class="container container1">
+    <div class="card">
+      <img src="<%= result.image.url %>" class="card-img-top" alt="#" />
+      <div class="card-body">
+        <i><p class="card-text">Owned by <%= result.owner.username %></p></i>
+        <p class="card-text"><b>Description :</b> <%= result.description %></p>
+        <p class="card-text">
+          <b>Price : </b>&#x20B9;<%= result.price.toLocaleString("en-IN") %>/day
+        </p>
+        <p class="card-text"><b>Location : </b><%= result.location %></p>
+        <p class="card-text"><b>Country : </b><%= result.country %></p>
+      </div>
+    </div>
+    <% if(currUser && result.owner._id.equals(currUser._id)) { %>
+    <div class="col-auto" id="col-auto">
+      <form action="/listing/<%= result._id %>/edit">
+        <button type="submit" class="btn btn-secondary mb-3">EDIT</button>
+      </form>
+      <form
+        action="/listing/<%= result.id %>/list?_method=delete"
+        method="post"
+      >
+        <button type="submit" class="btn btn-secondary mb-3">DELETE</button>
+      </form>
+    </div>
+    <hr />
+    <% } %>
+    <form action="/listing/<%= result.id %>/reserve" method="post">
+      <button type="submit" class="btn btn-secondary mb-3">RESERVE NOW</button>
+    </form>
+    <% if(currUser) { %>
+    <form
+      action="/listing/<%= result.id %>/review"
+      method="post"
+      style="width: 37vw"
+      novalidate
+      class="needs-validation comment"
+    >
+      <h2>Leave your review:</h2>
+      <fieldset class="starability-coinFlip stars mb-3">
+        <legend>rating:</legend>
+        <input type="radio" id="first-rate1" name="comment[rating]" value="1" />
+        <label for="first-rate1" title="Terrible">1 star</label>
+        <input type="radio" id="first-rate2" name="comment[rating]" value="2" />
+        <label for="first-rate2" title="Not good">2 stars</label>
+        <input type="radio" id="first-rate3" name="comment[rating]" value="3" />
+        <label for="first-rate3" title="Average">3 stars</label>
+        <input type="radio" id="first-rate4" name="comment[rating]" value="4" />
+        <label for="first-rate4" title="Very good">4 stars</label>
+        <input
+          type="radio"
+          id="first-rate5"
+          name="comment[rating]"
+          value="5"
+          required
+        />
+        <label for="first-rate5" title="Amazing">5 stars</label>
+      </fieldset>
+      <div class="invalid-feedback">Please enter the rating!</div>
+      <label for="comments">Comment : </label>
+      <textarea
+        name="comment[comments]"
+        id="comment"
+        class="form-control"
+        cols="30"
+        rows="10"
+        required
+      ></textarea>
+      <div class="col-auto mt-3">
+        <button type="submit" class="btn btn-secondary mb-3">Submit</button>
+      </div>
+    </form>
+    <% } %> <% if(result.comments.length >0){ %>
+    <hr />
+    <h2>All Reviews</h2>
+    <% for (const res of result.comments) {%>
+    <div><b>@<%= res.author.username %></b></div>
+    <p class="starability-result" data-rating="<%= res.rating %>"></p>
+    <div class="style">
+      <div><%= res.comments %></div>
+      <form
+        action="/listing/<%= result._id %>/comments/<%= res._id %>?_method=DELETE"
+        method="post"
+      >
+        <button class="btn btn-secondary">delete</button>
+      </form>
+    </div>
+    <hr />
+    <% } %> <% } %>
+    <div class="map mb-3">
+      <p class="block">Click to view location!</p>
+      <a
+        href="https://www.google.com/maps/place/<%= result.location %>"
+        target="_blank"
+      >
+        <iframe
+          width="600"
+          height="400"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          id="gmap_canvas"
+          src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=<%= result.location %>&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+        ></iframe>
+        <a href="https://www.versicherungen.at/">Versicherungen</a>
+        <script
+          type="text/javascript"
+          src="https://embedmaps.com/google-maps-authorization/script.js?id=be4d0820d653693ae91b07f4994604f9c31f8710"
+        ></script>
+      </a>
+    </div>
+  </div>
+</body>

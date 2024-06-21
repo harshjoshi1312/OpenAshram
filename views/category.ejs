@@ -1,0 +1,19 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="container row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+  <% if(result){ %> <% for (let resultAll of result) {%>
+  <div class="card">
+    <a href="/listing/<%= resultAll._id %>">
+      <img src="<%= resultAll.image.url %>" class="card-img-top" alt="#" />
+      <div class="card-img-overlay like"></div>
+      <div class="card-body">
+        <b><p class="card-text"><%= resultAll.title %></p></b>
+        <p class="card-text">
+          &#x20B9;<%= resultAll.price.toLocaleString("en-IN") %>/day
+        </p>
+      </div>
+    </a>
+  </div>
+  <% } %> <% } %> <% if(result.length == 0){ %>
+  <h1 style="margin: auto">No such result found for <i> <%= category %></i></h1>
+  <% } %>
+</div>

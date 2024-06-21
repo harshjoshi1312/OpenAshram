@@ -1,0 +1,133 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+  <h1>Edit Your Listing</h1>
+  <form
+    action="/listing/<%= result.id %>?_method=put"
+    method="post"
+    novalidate
+    class="needs-validation"
+    enctype="multipart/form-data"
+  >
+    <div class="addnew">
+      <div class="mb-3">
+        <label for="Input1" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Input1"
+          name="listing[title]"
+          value="<%= result.title %>"
+          required
+        />
+        <div class="valid-feedback">Title should be good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="Textarea1" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          id="Textarea1"
+          rows="3"
+          name="listing[description]"
+          required
+        >
+<%= result.description %></textarea
+        >
+        <div class="invalid-feedback">Please enter short description!</div>
+        <div class="valid-feedback">Description should be good!</div>
+      </div>
+      <div class="mb-3">
+        Original image <br />
+        <img
+          src="<%= originalImage %>"
+          alt="#"
+          style="width: 250px; height: 200px"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="Input1" class="form-label">Upload Image</label>
+        <input
+          type="file"
+          class="form-control"
+          id="Input1"
+          name="listing[image]"
+        />
+      </div>
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="Input1" class="form-label">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Input1"
+            name="listing[price]"
+            value="<%= result.price%>"
+            required
+          />
+          <div class="invalid-feedback">Please enter price!</div>
+          <div class="valid-feedback">Price should be good!</div>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="Input1" class="form-label">Country</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Input1"
+            name="listing[country]"
+            value="<%= result.country %>"
+            required
+          />
+          <div class="invalid-feedback">Please enter country name!</div>
+          <div class="valid-feedback">Country name should be valid!</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="options" class="form-label">Property category</label>
+          <select
+            class="form-select"
+            id="form-select"
+            name="listing[category]"
+            aria-label="Default select example"
+            required
+          >
+            <option selected><%= result.category%></option>
+            <option value="Home">Home</option>
+            <option value="Trending">Trending</option>
+            <option value="Desert">Desert</option>
+            <option value="Lake">Lake</option>
+            <option value="Camping">Camping</option>
+            <option value="NationalPark">NationalPark</option>
+            <option value="LakeFort">LakeFort</option>
+            <option value="Farms">Farms</option>
+            <option value="Island">Island</option>
+            <option value="TreeHouse">TreeHouse</option>
+            <option value="Beach">Beach</option>
+            <option value="BeschFront">BeschFront</option>
+            <option value="Tropical">Tropical</option>
+            <option value="Cave">Cave</option>
+            <option value="Domes">Domes</option>
+            <option value="Towers">Towers</option>
+            <option value="Houseboat">Houseboat</option>
+          </select>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="Input1" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Input1"
+            name="listing[location]"
+            placeholder="Enter location"
+            value="<%= result.location %>"
+            required
+          />
+          <div class="invalid-feedback">Please enter location!</div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-secondary mb-3">EDIT</button>
+      </div>
+    </div>
+  </form>
+  <script src="/js/script.js"></script>
+</body>

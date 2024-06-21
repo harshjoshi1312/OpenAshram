@@ -1,0 +1,22 @@
+<% layout("/layouts/boilerplate.ejs") %> <% if(search.length >0){ %>
+<div class="container row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+  <% for (let resultAll of result) {%>
+  <div class="card">
+    <a href="/listing/<%= resultAll._id %>">
+      <img src="<%= resultAll.image.url %>" class="card-img-top" alt="#" />
+      <div class="card-img-overlay like"></div>
+      <div class="card-body">
+        <b><p class="card-text"><%= resultAll.title %></p></b>
+        <p class="card-text">
+          &#x20B9;<%= resultAll.price %>/night<i class="text-info"
+            >&nbsp; &nbsp; +18% GST</i
+          >
+        </p>
+      </div>
+    </a>
+  </div>
+  <% } %>
+</div>
+<% }%> <% if(result.length == 0 ){ %>
+<h1>Not such result found of <i><%= search %></i></h1>
+<% } %>
