@@ -1,0 +1,379 @@
+/* Base Styles */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  background-color: #fff; /* White background */
+  color: #000; /* Black text */
+  margin: 0;
+  padding: 0;
+}
+
+/* Containers */
+.container1 {
+  flex: 1;
+  background-color: #f9f9f9; /* Light gray background */
+  padding: 20px;
+}
+
+.container {
+  margin: auto;
+  padding: 20px;
+  background-color: #f0f0f0; /* Very light gray */
+  border-radius: 8px;
+}
+
+/* Navigation */
+nav {
+  height: 5rem;
+  position: sticky;
+  top: 0;
+  background-color: #fff; /* White */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid #ccc; /* Light gray border */
+}
+
+.nav-link {
+  color: #000; /* Black text */
+  font-size: 1rem;
+  margin: 0 10px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #555; /* Darker gray on hover */
+}
+
+.logo img {
+  width: 70px;
+  height: 70px;
+}
+
+.navbar {
+  padding: 0;
+}
+
+.container-fluid {
+  border-bottom: 2px solid #ccc; /* Light gray */
+  background-color: #fff; /* White */
+}
+
+/* Icons */
+.icon {
+  font-size: 1.5rem;
+  margin: 8px;
+}
+
+.icon i {
+  padding: 5px;
+  color: #555; /* Dark gray */
+  transition: color 0.3s ease-in-out;
+}
+
+.icon i:hover {
+  color: #000; /* Black on hover */
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: #000; /* Black text */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  border-radius: 0;
+  background-color: #fff !important; /* White */
+  color: #000; /* Black text */
+  padding: 10px 0;
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  border-top: 2px solid #ccc; /* Light gray */
+  background-color: #fff; /* White */
+}
+
+/* Cards */
+.card {
+  border: none;
+  background-color: #f9f9f9; /* Light gray */
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card img {
+  height: 250px;
+  border-radius: 8px; /* Rounded corners for images */
+}
+
+.card-body {
+  margin: 10px;
+  padding: 0;
+}
+
+.card-text {
+  margin: 0;
+}
+
+.card-img-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+.card-img-overlay:hover {
+  opacity: 0.3;
+  background-color: rgba(255, 255, 255, 0.5); /* Slightly transparent white */
+}
+
+.like {
+  color: #fff; /* White text */
+  background-color: #000; /* Black background */
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.like:hover {
+  background-color: #ddd; /* Lighter gray on hover */
+  color: #000; /* Black text on hover */
+}
+
+.addnew {
+  width: 50%;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #f0f0f0; /* Very light gray */
+  border-radius: 8px;
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  margin-top: 10px;
+  color: #000; /* Black text */
+}
+
+/* Additional Styles */
+.anchor a:hover,
+.navbar-nav a:hover {
+  text-decoration: underline;
+}
+
+.style {
+  display: flex;
+  justify-content: space-between;
+}
+
+.short {
+  display: none;
+}
+
+.alert {
+  height: 3.5rem !important;
+  text-align: center;
+  background-color: #ccc; /* Light gray */
+  color: #000; /* Black text */
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.row {
+  margin: auto;
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  margin-right: 25px;
+  text-align: center;
+}
+
+.filter img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.filter img:hover {
+  transform: scale(1.2);
+}
+
+i {
+  cursor: pointer;
+}
+
+/* Main Content */
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.textToggle,
+.textToggle1 {
+  border: 1px solid #ccc; /* Light gray */
+  width: 15%;
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.textToggle:hover,
+.textToggle1:hover {
+  background-color: #ddd; /* Lighter gray */
+}
+
+.form-select {
+  margin-right: 10px;
+  background-color: #f0f0f0; /* Very light gray */
+  color: #000; /* Black text */
+  border: 1px solid #ccc; /* Light gray */
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 980px) {
+  .all {
+    display: none;
+  }
+  .short {
+    display: block;
+  }
+  .col-md-6 {
+    padding: 0;
+  }
+  .selectopt {
+    width: 30vw;
+  }
+}
+
+@media (max-width: 431px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+  }
+  .main::-webkit-scrollbar {
+    display: none;
+  }
+  #textToggle1 {
+    display: none;
+  }
+  .filters {
+    margin-left: 1050px;
+    width: fit-content;
+  }
+  #textToggle {
+    width: 35vw;
+    margin: auto;
+    display: block;
+  }
+  .alert {
+    width: 100vw;
+    margin: auto;
+  }
+  #login {
+    width: 80vw;
+    margin-left: 35px;
+  }
+  #login .form-control {
+    width: 70vw;
+    margin-left: -60px;
+  }
+  #login .form-label {
+    margin-left: -55px;
+  }
+  #login .btn {
+    margin-left: -55px;
+  }
+  .addnew {
+    width: 70vw;
+  }
+  .col-md-6 {
+    padding: 0;
+  }
+  .container1 {
+    width: 90vw;
+    padding: 0;
+  }
+  #col-auto {
+    margin-left: 40px;
+  }
+  .card {
+    width: 70vw;
+    margin: auto;
+  }
+  .map {
+    width: 90vw;
+    margin: auto;
+  }
+  .comment {
+    width: 90vw !important;
+  }
+  .row div {
+    padding: 0;
+  }
+  .row {
+    display: inline-block;
+  }
+  .row input,
+  #form-select {
+    width: 33vw;
+  }
+  #form-select {
+    margin: 0;
+  }
+  .footer {
+    width: 100vw;
+  }
+}
+
+@media (max-width: 280px) {
+  .filters {
+    margin-left: 1150px;
+  }
+  #textToggle {
+    width: 45vw;
+  }
+  .row input,
+  #form-select
