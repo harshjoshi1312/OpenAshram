@@ -1,8 +1,11 @@
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
+
 const express = require("express");
 const app = express();
 const port = 8080;
 const mongoose = require("mongoose");
-
 
 const dburl = process.env.MONGODB_URL;
 
@@ -17,7 +20,6 @@ main()
 async function main() {
   await mongoose.connect(dburl);
 }
-
 
 app.set("view engine", "ejs");
 
