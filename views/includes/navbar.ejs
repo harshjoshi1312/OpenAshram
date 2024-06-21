@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand logo" href="/listing"
+      ><img
+        src="https://png.pngtree.com/png-vector/20190323/ourmid/pngtree-beach-logo-design-vector-png-image_874307.jpg"
+        alt="#"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listing">Explore</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search" action="/listing/search">
+          <select
+            class="form-select selectopt"
+            name="select"
+            aria-label="Default select example"
+            required
+          >
+            <option value="price">Price</option>
+            <option value="location">Location</option>
+            <option value="country">Country</option>
+          </select>
+          <input
+            style="width: 190px; margin-right: 10px"
+            class="form-control search"
+            placeholder="search Destination"
+            name="search"
+            required
+          />
+          <button class="btn btn-danger" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listing/new">Add your home</a>
+        <% if(!currUser){ %>
+        <a href="/signUp" class="nav-link">SignUp</a>
+        <a href="/login" class="nav-link">LogIn</a>
+        <% } %> <% if(currUser) { %>
+        <a href="/logout" class="nav-link">LogOut</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

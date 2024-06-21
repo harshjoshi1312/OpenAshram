@@ -1,0 +1,47 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<h1>Varify your account</h1>
+<div class="row mt-3">
+  <div class="row mt-3">
+    <div class="col-8">
+      <form action="/listing" class="offset-5 needs-validation" id="form">
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="otp"
+            name="otp"
+            value="<%= number %>"
+            style="display: none"
+            required
+          />
+          <label for="number" class="form-label">Enter the OTP : </label>
+          <input
+            type="text"
+            class="form-control"
+            id="number"
+            name="number"
+            required
+          />
+        </div>
+        <div class="col-auto">
+          <div type="submit" id="btn" class="btn btn-secondary mb-3">
+            submit
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  let num = document.querySelector("#otp");
+  let varify = document.querySelector("#number");
+  let submit = document.querySelector("#form");
+  let button = document.querySelector("#btn");
+  button.addEventListener("click", () => {
+    if (varify.value == num.value) {
+      submit.submit();
+    } else {
+      alert("please enter the valid otp number");
+    }
+  });
+</script>
