@@ -28,7 +28,7 @@ const dburl = process.env.ATLASDB_URL;
 
 main()
   .then(() => {
-    console.log("success");
+    console.log("databse connected suceessfully");
   })
   .catch((err) => {
     console.log(err);
