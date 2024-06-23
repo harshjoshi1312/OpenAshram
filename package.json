@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "20.7.0"
+  },
   "name": "openashram",
   "version": "1.0.0",
   "description": "this website for the free rental property",
