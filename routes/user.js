@@ -10,7 +10,7 @@ route
   .get(userController.signUpForm)
   .post(userController.signUpUser);
 
-route.post("/reserve", userController.reserve);
+// route.post("/reserve", userController.reserve);
 route
   .route("/login")
   .get(userController.loginForm)

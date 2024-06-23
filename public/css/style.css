@@ -376,4 +376,10 @@ i {
     width: 45vw;
   }
   .row input,
-  #form-select
+  #form-select {
+  }
+}
+.alert-success {
+  margin: auto;
+  margin-bottom: 20px;
+}
