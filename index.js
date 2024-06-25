@@ -20,6 +20,7 @@ const userSchema = require("./model/user.js");
 const listing1 = require("./routes/listing.js");
 const review1 = require("./routes/review.js");
 const user1 = require("./routes/user.js");
+const { log } = require("console");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -81,8 +82,10 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
+
   next();
 });
+
 app.use("/listing", listing1);
 app.use("/listing/:id", review1);
 app.use("/", user1);
